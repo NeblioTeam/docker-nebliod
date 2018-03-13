@@ -28,8 +28,8 @@ EOF
         if [ -e "$HOME/.neblio/bootstrap.dat.old" ]; then
             break
         fi
-        if [ "$i" -gt 120 ]; then
-            # break after an hour no matter what
+        if [ "$i" -gt 480 ]; then
+            # break after 4 hours no matter what
             break
         fi
         sleep 30
