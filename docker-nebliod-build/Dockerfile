@@ -6,7 +6,7 @@ RUN chmod 755 /usr/local/bin/neblio_quicksync
 
 RUN cd $HOME \
     && git clone https://github.com/NeblioTeam/neblio \
-    && cd neblio/src \
+    && cd neblio/wallet \
     && mkdir obj \
     && cd obj \
     && mkdir zerocoin \
