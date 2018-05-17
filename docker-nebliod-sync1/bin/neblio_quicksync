@@ -1,4 +1,8 @@
 #!/bin/bash
+
+mkdir -p $HOME/.neblio
+cp -R $HOME/.neblio.bootstrapped/* $HOME/.neblio/
+
 if [ ! -e "$HOME/.neblio/blk0001.dat" ]; then
     echo "Downloading blockchain data"
     mkdir $HOME/.neblio
@@ -28,8 +32,8 @@ EOF
         if [ -e "$HOME/.neblio/bootstrap.dat.old" ]; then
             break
         fi
-        if [ "$i" -gt 480 ]; then
-            # break after 4 hours no matter what
+        if [ "$i" -gt 180 ]; then
+            # break after 90 minutes no matter what
             break
         fi
         sleep 30
