@@ -3,46 +3,45 @@
 mkdir -p $HOME/.neblio
 cp -R $HOME/.neblio.bootstrapped/* $HOME/.neblio/
 
-if [ ! -e "$HOME/.neblio/blk0001.dat" ]; then
-    echo "Downloading blockchain data"
-    mkdir $HOME/.neblio
+echo "Downloading blockchain data"
+mkdir $HOME/.neblio
 
-    cat <<EOF > $HOME/.neblio/neblio.conf
+cat <<EOF > $HOME/.neblio/neblio.conf
 rpcuser=${RPCUSER:-nebliorpc}
 rpcpassword=${RPCPASSWORD:-rpctemp}
 EOF
 
-    cd $HOME
-    git clone https://github.com/NeblioTeam/neblio-blockchain-data
-    cd neblio-blockchain-data
-    cat neblio-blocklchain-data-archive.tar.gz.* > temp.tar.gz
-    tar -zxvf temp.tar.gz
-    cp -R ./data/* $HOME/.neblio/
-    cd ..
-    rm -rf neblio-blockchain-data
-    nebliod -daemon=1
+cd $HOME
+git clone https://github.com/NeblioTeam/neblio-blockchain-data
+cd neblio-blockchain-data
+cat neblio-blocklchain-data-archive.tar.gz.* > temp.tar.gz
+tar -zxvf temp.tar.gz
+cp -R ./data/* $HOME/.neblio/
+cd ..
+rm -rf neblio-blockchain-data
+nebliod -daemon=1
 
-    i=0
-    while true
-    do
-        (( i = i + 1 ))
-        REMOTE_COUNT=`wget -O - http://explorer.nebl.io/api/getblockcount 2>/dev/null`
-        LOCAL_COUNT=`nebliod getblockcount 2>&1`
-        echo "Syncing $LOCAL_COUNT \ $REMOTE_COUNT"
-        if [ -e "$HOME/.neblio/bootstrap.dat.old" ]; then
-            break
-        fi
-        if [ "$i" -gt 180 ]; then
-            # break after 90 minutes no matter what
-            break
-        fi
-        sleep 30
-    done
-    sleep 10
-    nebliod stop
-    rm $HOME/.neblio/neblio.conf
-    rm $HOME/.neblio/wallet.dat
-    # move our files out and we will copy them back in init
-    mv $HOME/.neblio $HOME/.neblio.bootstrapped
+i=0
+while true
+do
+    (( i = i + 1 ))
+    REMOTE_COUNT=`wget -O - http://explorer.nebl.io/api/getblockcount 2>/dev/null`
+    LOCAL_COUNT=`nebliod getblockcount 2>&1`
+    echo "Syncing $LOCAL_COUNT \ $REMOTE_COUNT"
+    if [ -e "$HOME/.neblio/bootstrap.dat.old" ]; then
+        break
+    fi
+    if [ "$i" -gt 180 ]; then
+        # break after 90 minutes no matter what
+        break
+    fi
     sleep 30
-fi
+done
+sleep 10
+nebliod stop
+rm $HOME/.neblio/neblio.conf
+rm $HOME/.neblio/wallet.dat
+# move our files out and we will copy them back in init
+mv $HOME/.neblio $HOME/.neblio.bootstrapped
+sleep 30
+
