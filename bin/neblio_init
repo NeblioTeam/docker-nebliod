@@ -26,4 +26,6 @@ fi
 
 cat $HOME/.neblio/neblio.conf
 
+rm $HOME/.neblio/bootstrap.dat
+
 echo "Initialization completed successfully"
