@@ -5,7 +5,8 @@ set -ex
 # check if we have a bootstrapped .neblio dir we need to copy
 if [ ! -e "$HOME/.neblio/bootstrap.dat.old" ]; then
     mkdir -p $HOME/.neblio
-    cp -R $HOME/.neblio.bootstrapped/* $HOME/.neblio/
+    mv $HOME/.neblio.bootstrapped/* $HOME/.neblio/
+    rm -r $HOME/.neblio.bootstrapped
 fi
 
 # This shouldn't be in the Dockerfile or containers built from the same image
@@ -25,7 +26,5 @@ EOF
 fi
 
 cat $HOME/.neblio/neblio.conf
-
-rm $HOME/.neblio/bootstrap.dat
 
 echo "Initialization completed successfully"

@@ -1,10 +1,9 @@
 #!/bin/bash
 
-mkdir -p $HOME/.neblio
-cp -R $HOME/.neblio.bootstrapped/* $HOME/.neblio/
+mv $HOME/.neblio.bootstrapped $HOME/.neblio
 
 echo "Downloading blockchain data"
-mkdir $HOME/.neblio
+mkdir -p $HOME/.neblio
 
 cat <<EOF > $HOME/.neblio/neblio.conf
 rpcuser=${RPCUSER:-nebliorpc}
