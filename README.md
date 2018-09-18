@@ -5,7 +5,9 @@ neblioteam/buildpack-deps: A base Ubuntu 16.04 docker container with dependencie
 
 neblioteam/nebliod-build: A container for building the latest version of nebliod, and then syncing and saving the blockchain
 
-neblioteam/nebliod: The main nebliod container that end users will use. Instantly launches and starts nebliod with a fully-synced blockchain. 
+neblioteam/nebliod: The main nebliod container that end users will use. Instantly launches and starts nebliod with a fully-synced blockchain.
+
+neblioteam/nebliod-testnet: Instantly launches and starts nebliod with a fully-synced blockchain on testnet.
 
 Quick Start
 ===========

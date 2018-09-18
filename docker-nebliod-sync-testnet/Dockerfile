@@ -1,4 +1,4 @@
-FROM neblioteam/nebliod-build
+FROM neblioteam/nebliod-sync-testnet
 MAINTAINER Neblio <info@nebl.io>
 
 ADD ./bin /usr/local/bin
