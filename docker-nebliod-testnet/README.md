@@ -14,6 +14,6 @@ Prerequisites: Any system with docker installed. https://docs.docker.com/engine/
 
 To launch a fully functional nebliod node, with QuickSync simply run the following command:
 
-    sudo docker run -i -t --rm --name nebliod-testnet -v $HOME/neblio-data-testnet:/root/.neblio -p 6325:6325 neblioteam/nebliod-testnet
+    sudo docker run -i -t --rm --name nebliod-testnet -v $HOME/neblio-data-testnet:/root/.neblio -p 16325:16325 neblioteam/nebliod-testnet
 
 Blockchain data and nebliod configuration files will be persistently stored on the local machine at $HOME/neblio-data-testnet
