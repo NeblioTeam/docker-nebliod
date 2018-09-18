@@ -1,4 +1,4 @@
-FROM neblioteam/nebliod-sync2
+FROM neblioteam/nebliod-sync10
 MAINTAINER Neblio <info@nebl.io>
 
 ADD ./bin /usr/local/bin

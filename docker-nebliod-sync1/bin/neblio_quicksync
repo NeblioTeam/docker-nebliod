@@ -30,8 +30,8 @@ do
     if [ -e "$HOME/.neblio/bootstrap.dat.old" ]; then
         break
     fi
-    if [ "$i" -gt 180 ]; then
-        # break after 90 minutes no matter what
+    if [ "$i" -gt 200 ]; then
+        # break after 100 minutes no matter what
         break
     fi
     sleep 30
@@ -40,6 +40,7 @@ sleep 10
 nebliod stop
 rm $HOME/.neblio/neblio.conf
 rm $HOME/.neblio/wallet.dat
+rm $HOME/.neblio/bootstrap.dat
 # move our files out and we will copy them back in init
 mv $HOME/.neblio $HOME/.neblio.bootstrapped
 sleep 30
