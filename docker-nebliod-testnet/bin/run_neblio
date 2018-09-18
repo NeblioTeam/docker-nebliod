@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -ex
+
+# Generate neblio.conf
+neblio_init
+
+if [ $# -gt 0 ]; then
+    args=("$@")
+else
+    args=("-rpcallowip=::/0")
+fi
+
+exec nebliod "${args[@]}"

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -ex
+
+# check if we have a bootstrapped .neblio dir we need to copy
+# if [ ! -e "$HOME/.neblio/bootstrap.dat.old" ]; then
+#     mkdir -p $HOME/.neblio
+#     mv $HOME/.neblio.bootstrapped/* $HOME/.neblio/
+#     rm -r $HOME/.neblio.bootstrapped
+# fi
+
+# This shouldn't be in the Dockerfile or containers built from the same image
+# will have the same credentials.
+if [ ! -e "$HOME/.neblio/neblio.conf" ]; then
+    mkdir -p $HOME/.neblio
+
+    echo "Creating neblio.conf"
+
+    # Seed a random password for JSON RPC server
+    cat <<EOF > $HOME/.neblio/neblio.conf
+printtoconsole=${PRINTTOCONSOLE:-1}
+rpcuser=${RPCUSER:-nebliorpc}
+rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
+addnode=nebliodseed1.nebl.io
+addnode=nebliodseed2.nebl.io
+testnet=1
+EOF
+
+fi
+
+cat $HOME/.neblio/neblio.conf
+
+echo "Initialization completed successfully"
