@@ -13,7 +13,7 @@ RUN cd $HOME \
     && cd leveldb \
     && chmod 755 * \
     && cd .. \
-    && make -B -w -f makefile.unix \
+    && make "STATIC=1" -B -w -f makefile.unix \
     && strip nebliod \
     && cp ./nebliod /bin/nebliod \
     && rm -r $HOME/neblio
