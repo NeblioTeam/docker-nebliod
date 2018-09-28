@@ -23,7 +23,7 @@ do
     if [ "$LOCAL_COUNT" -eq "$REMOTE_COUNT" ]; then
         break
     fi
-    if [ "$i" -gt 100 ]; then
+    if [ "$i" -gt 200 ]; then
         # break after 100 minutes no matter what
         break
     fi

@@ -1,5 +1,5 @@
-FROM neblioteam/nebliod-build-rpi
-#FROM neblioteam/nebliod-sync-rpi
+#FROM neblioteam/nebliod-build-rpi
+FROM neblioteam/nebliod-sync-rpi
 MAINTAINER Neblio <info@nebl.io>
 
 RUN [ "cross-build-start" ]
