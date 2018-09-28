@@ -1,0 +1,38 @@
+#!/bin/bash
+
+mv $HOME/.neblio.bootstrapped $HOME/.neblio
+
+echo "Syncing blockchain data"
+mkdir -p $HOME/.neblio
+
+cat <<EOF > $HOME/.neblio/neblio.conf
+rpcuser=${RPCUSER:-nebliorpc}
+rpcpassword=${RPCPASSWORD:-rpctemp}
+EOF
+
+cd $HOME
+nebliod -daemon=1
+
+i=0
+while true
+do
+    (( i = i + 1 ))
+    REMOTE_COUNT=`wget -O - http://explorer.nebl.io/api/getblockcount 2>/dev/null`
+    LOCAL_COUNT=`nebliod getblockcount 2>&1`
+    echo "Syncing $LOCAL_COUNT \ $REMOTE_COUNT"
+    if [ "$LOCAL_COUNT" -eq "$REMOTE_COUNT" ]; then
+        break
+    fi
+    if [ "$i" -gt 100 ]; then
+        # break after 100 minutes no matter what
+        break
+    fi
+    sleep 30
+done
+sleep 10
+nebliod stop
+rm $HOME/.neblio/neblio.conf
+rm $HOME/.neblio/testnet/wallet.dat
+# move our files out and we will copy them back in init
+mv $HOME/.neblio $HOME/.neblio.bootstrapped
+sleep 30
