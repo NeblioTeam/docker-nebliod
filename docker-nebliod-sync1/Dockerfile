@@ -1,5 +1,9 @@
-FROM neblioteam/nebliod-build
+FROM ubuntu:xenial
 MAINTAINER Neblio <info@nebl.io>
+
+COPY --from=neblioteam/nebliod-build:latest /bin/nebliod /bin/nebliod
+
+RUN apt-get update && apt-get install -y wget git
 
 ADD ./bin /usr/local/bin
 RUN chmod 755 /usr/local/bin/neblio_quicksync

@@ -6,6 +6,7 @@ set -ex
 if [ ! -e "$HOME/.neblio/bootstrap.dat.old" ]; then
     mkdir -p $HOME/.neblio
     mv $HOME/.neblio.bootstrapped/* $HOME/.neblio/
+    touch $HOME/.neblio/bootstrap.dat.old
     rm -r $HOME/.neblio.bootstrapped
 fi
 
