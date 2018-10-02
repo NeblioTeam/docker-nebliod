@@ -19,3 +19,29 @@ To launch a fully functional nebliod node, with QuickSync simply run the followi
     sudo docker run -i -t --rm --name nebliod -v $HOME/neblio-data:/root/.neblio -p 6325:6325 neblioteam/nebliod
 
 Blockchain data and nebliod configuration files will be persistently stored on the local machine at $HOME/neblio-data
+
+
+DockerHub Build Order Reference
+===============================
+- nebliod-build
+- nebliod-sync1
+- nebliod-sync2
+- nebliod-sync3
+- nebliod-sync4
+- nebliod-sync5
+- nebliod-sync6
+- nebliod-sync7
+- nebliod-sync8
+- nebliod-sync9
+- nebliod-sync10
+- nebliod
+  - neblio-quicksync
+  - nebliod-sync-testnet
+- nebliod-testnet
+  - neblio-quicksync-testnet
+  - nebliod-sync-rpi
+- nebliod-rpi
+- neblio-quicksync-rpi
+- nebliod-sync-testnet-rpi
+- nebliod-testnet-rpi
+- neblio-quicksync-testnet-rpi
