@@ -7,7 +7,7 @@ COPY --from=neblioteam/nebliod-sync10:latest /root/.neblio.bootstrapped /root/.n
 ADD ./bin /usr/local/bin
 RUN chmod 755 /usr/local/bin/neblio_init /usr/local/bin/run_neblio
 
-EXPOSE 6325 6326
+EXPOSE 16325 16326
 
 VOLUME /root/.neblio
 
