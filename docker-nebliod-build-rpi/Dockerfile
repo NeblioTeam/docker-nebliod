@@ -21,7 +21,7 @@ RUN cd $HOME \
     && chmod 755 * \
     && cd .. \
     && ccache -s \
-    && make "STATIC=1" -B -w -j4 -f makefile.unix \
+    && make "STATIC=1" -B -w -j2 -f makefile.unix \
     && ccache -s \
     && strip nebliod \
     && cp ./nebliod /bin/nebliod \
@@ -29,7 +29,7 @@ RUN cd $HOME \
     && cd neblio \
     && ccache -s \
     && qmake "USE_UPNP=1" "USE_QRCODE=1" "RELEASE=1" neblio-wallet.pro \
-    && make -B -w -j4 \
+    && make -B -w -j2 \
     && ccache -s \
     && cp ./wallet/neblio-qt /bin/neblio-qt \
     && ccache -s
