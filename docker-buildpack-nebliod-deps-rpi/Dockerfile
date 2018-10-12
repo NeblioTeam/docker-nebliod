@@ -8,13 +8,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libboost-all-dev \
         libdb++-dev \
         libminiupnpc-dev \
-        libssl-dev \
         qt5-default \
         qt5-qmake \
         qtbase5-dev-tools \
         qttools5-dev-tools \
         libqrencode-dev \
-        libcurl4-openssl-dev \
         libldap2-dev \
         libidn11-dev \
         librtmp-dev \
