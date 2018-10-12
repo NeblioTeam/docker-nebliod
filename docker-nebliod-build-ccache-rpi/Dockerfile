@@ -5,7 +5,6 @@ ENTRYPOINT cross-build-start \
     && cd $HOME \
     && export PATH=/usr/lib/ccache:$PATH \
     && export CCACHE_DIR=/root/deploy/.ccache \
-    && rm -rf ./neblio \
     && git clone -b $BRANCH https://github.com/NeblioTeam/neblio \
     && cd neblio/wallet \
     && mkdir obj \
