@@ -5,21 +5,11 @@ RUN [ "cross-build-start" ]
 
 RUN cd $HOME \
     && export PATH=/usr/lib/ccache:$PATH \
-    && git clone -b NTP1Support https://github.com/NeblioTeam/neblio \
-    && python ./neblio/build_scripts/CompileOpenSSL-Linux.py \
+    && git clone -b master https://github.com/NeblioTeam/neblio \
     && export OPENSSL_INCLUDE_PATH=$HOME/openssl_build/include/ \
     && export OPENSSL_LIB_PATH=$HOME/openssl_build/lib/ \
-    && python ./neblio/build_scripts/CompileCurl-Linux.py \
     && export PKG_CONFIG_PATH=$HOME/curl_build/lib/pkgconfig/ \
-    && python ./neblio/build_scripts/CompileQREncode-Linux.py \
     && cd neblio/wallet \
-    && mkdir obj \
-    && cd obj \
-    && mkdir zerocoin \
-    && cd .. \
-    && cd leveldb \
-    && chmod 755 * \
-    && cd .. \
     && ccache -s \
     && make "STATIC=1" -B -w -j2 -f makefile.unix \
     && ccache -s \
@@ -28,7 +18,7 @@ RUN cd $HOME \
     && cd $HOME \
     && cd neblio \
     && ccache -s \
-    && qmake "USE_UPNP=1" "USE_QRCODE=1" "RELEASE=1" neblio-wallet.pro \
+    && qmake "USE_UPNP=1" "USE_QRCODE=1" "RELEASE=1" "OPENSSL_INCLUDE_PATH=$HOME/openssl_build/include/" "OPENSSL_LIB_PATH=$HOME/openssl_build/lib/" "PKG_CONFIG_PATH=$HOME/curl_build/lib/pkgconfig/" neblio-wallet.pro \
     && make -B -w -j2 \
     && ccache -s \
     && cp ./wallet/neblio-qt /bin/neblio-qt \
