@@ -3,7 +3,7 @@ MAINTAINER Neblio <info@nebl.io>
 
 RUN [ "cross-build-start" ]
 
-COPY --from=neblioteam/nebliod-sync-testnet-rpi:latest /bin/nebliod /bin/nebliod
+COPY --from=neblioteam/nebliod-build-rpi:latest /bin/nebliod /bin/nebliod
 COPY --from=neblioteam/nebliod-sync-testnet-rpi:latest /root/.neblio.bootstrapped /root/.neblio.bootstrapped
 
 ADD ./bin /usr/local/bin
