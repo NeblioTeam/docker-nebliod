@@ -38,6 +38,7 @@ do
 done
 sleep 10
 nebliod stop
+sleep 60
 rm $HOME/.neblio/neblio.conf
 rm $HOME/.neblio/wallet.dat
 rm $HOME/.neblio/bootstrap.dat
