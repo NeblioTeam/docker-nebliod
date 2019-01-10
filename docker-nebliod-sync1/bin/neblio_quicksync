@@ -11,6 +11,7 @@ rpcpassword=${RPCPASSWORD:-rpctemp}
 EOF
 
 cd $HOME
+rm $HOME/.neblio/bootstrap.dat.old
 git clone https://github.com/NeblioTeam/neblio-blockchain-data
 cd neblio-blockchain-data
 cat neblio-blocklchain-data-archive.tar.gz.* > temp.tar.gz
@@ -27,7 +28,7 @@ do
     REMOTE_COUNT=`wget -O - http://explorer.nebl.io/api/getblockcount 2>/dev/null`
     LOCAL_COUNT=`nebliod getblockcount 2>&1`
     echo "Syncing $LOCAL_COUNT \ $REMOTE_COUNT"
-    if [ -e "$HOME/.neblio/bootstrap.dat.old" ]; then
+    if [ "$LOCAL_COUNT" -eq "$REMOTE_COUNT" ]; then
         break
     fi
     if [ "$i" -gt 200 ]; then
