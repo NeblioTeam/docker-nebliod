@@ -1,4 +1,4 @@
-FROM balenalib/armv7hf-debian:stretch
+FROM balenalib/raspberry-pi-debian:stretch
 MAINTAINER Neblio <info@nebl.io>
 
 RUN [ "cross-build-start" ]

@@ -1,4 +1,4 @@
-FROM balenalib/raspberry-pi-buildpack-deps:stretch
+FROM balenalib/raspberry-pi-debian:stretch
 MAINTAINER Neblio <info@nebl.io>
 
 RUN [ "cross-build-start" ]
@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libidn11-dev \
         librtmp-dev \
         ccache \
+        git \
     && rm -rf /var/lib/apt/lists/*
 
 RUN cd $HOME \
