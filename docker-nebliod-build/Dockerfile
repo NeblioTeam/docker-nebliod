@@ -1,4 +1,4 @@
-FROM neblioteam/buildpack-deps:nebliod
+FROM neblioteam/buildpack-deps:latest
 MAINTAINER Neblio <info@nebl.io>
 
 RUN cd $HOME \

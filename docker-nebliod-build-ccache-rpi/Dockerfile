@@ -1,4 +1,4 @@
-FROM neblioteam/buildpack-deps-rpi:nebliod
+FROM neblioteam/buildpack-deps-rpi:latest
 MAINTAINER Neblio <info@nebl.io>
 
 
