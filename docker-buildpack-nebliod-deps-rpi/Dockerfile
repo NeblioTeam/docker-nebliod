@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi-buildpack-deps:stretch
+FROM balenalib/raspberry-pi-buildpack-deps:stretch
 MAINTAINER Neblio <info@nebl.io>
 
 RUN [ "cross-build-start" ]
