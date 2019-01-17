@@ -6,6 +6,7 @@ RUN [ "cross-build-start" ]
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
         libboost-all-dev \
+        libcurl4-openssl-dev \
         libdb++-dev \
         libminiupnpc-dev \
         qt5-default \
