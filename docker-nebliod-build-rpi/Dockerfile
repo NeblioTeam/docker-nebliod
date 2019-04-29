@@ -13,7 +13,6 @@ RUN cd $HOME \
     && ccache -s \
     && make "STATIC=1" -B -w -j2 -f makefile.unix \
     && ccache -s \
-    && ./test/neblio-tests \
     && strip nebliod \
     && cp ./nebliod /bin/nebliod \
     && cd $HOME \
