@@ -7,4 +7,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libdb++-dev \
         libminiupnpc-dev \
         libssl-dev \
+        libsodium-dev \
     && rm -rf /var/lib/apt/lists/*
