@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libldap2-dev \
         libidn11-dev \
         librtmp-dev \
+        libsodium-dev \
         ccache \
         git \
     && rm -rf /var/lib/apt/lists/*
