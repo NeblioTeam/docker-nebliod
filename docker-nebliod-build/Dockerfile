@@ -1,9 +1,13 @@
 FROM neblioteam/buildpack-deps:latest
 MAINTAINER Neblio <info@nebl.io>
 
+ARG GITHUB_SHA=1
+
 RUN cd $HOME \
-    && git clone -b master https://github.com/NeblioTeam/neblio \
+    && if [ "$GITHUB_SHA" != 1 ]; then git clone -n https://github.com/NeblioTeam/neblio; fi \
+    && if [ "$GITHUB_SHA" = 1 ]; then git clone -b master https://github.com/NeblioTeam/neblio; fi \
     && cd neblio \
+    && if [ "$GITHUB_SHA" != 1 ]; then git checkout "${GITHUB_SHA}"; fi \
     && python build_scripts/CompileOpenSSL-Linux.py \
     && python build_scripts/CompileCurl-Linux.py \
     && PKG_CONFIG_PATH="$(pwd)/curl_build/lib/pkgconfig/" \
