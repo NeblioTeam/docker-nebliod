@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN cd $HOME \
     && easy_install pip \
     && pip install requests \
-    && git clone -b v3 https://github.com/NeblioTeam/neblio \
+    && git clone -b master https://github.com/NeblioTeam/neblio \
     && python neblio/build_scripts/CompileOpenSSL-Linux.py \
     && python neblio/build_scripts/CompileCurl-Linux.py \
     && python neblio/build_scripts/CompileQREncode-Linux.py \
