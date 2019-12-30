@@ -24,7 +24,7 @@ ENTRYPOINT cd $HOME \
     && if [ "$BUILD" = "neblio-qt" ]; then make -B -w -j2; fi \
     && if [ "$BUILD" = "neblio-qt" ]; then cp ./wallet/neblio-qt /root/vol/deploy/neblio-qt; fi \
     && if [ "$BUILD" = "tests-neblio-qt" ]; then cd /root/vol; fi \
-    && if [ "$BUILD" = "tests-neblio-qt" ]; then qmake "USE_UPNP=1" "USE_QRCODE=1" "RELEASE=1" "OPENSSL_INCLUDE_PATH=$HOME/openssl_build/include/" "OPENSSL_LIB_PATH=$HOME/openssl_build/lib/" "PKG_CONFIG_PATH=$HOME/curl_build/lib/pkgconfig/" "QRENCODE_INCLUDE_PATH=$HOME/qrencode_build/include/" "QRENCODE_LIB_PATH=$HOME/qrencode_build/lib/" "BOOST_INCLUDE_PATH=$(pwd)/boost_build/include/" "BOOST_LIB_PATH=$(pwd)/boost_build/lib/" "NEBLIO_CONFIG += NoWallet" neblio-wallet.pro; fi \
+    && if [ "$BUILD" = "tests-neblio-qt" ]; then qmake "USE_UPNP=1" "USE_QRCODE=1" "RELEASE=1" "OPENSSL_INCLUDE_PATH=$HOME/openssl_build/include/" "OPENSSL_LIB_PATH=$HOME/openssl_build/lib/" "PKG_CONFIG_PATH=$HOME/curl_build/lib/pkgconfig/" "QRENCODE_INCLUDE_PATH=$HOME/qrencode_build/include/" "QRENCODE_LIB_PATH=$HOME/qrencode_build/lib/" "BOOST_INCLUDE_PATH=$(pwd)/boost_build/include/" "BOOST_LIB_PATH=$(pwd)/boost_build/lib/" "DEFINES += UNITTEST_RUN_NTP_PARSE_TESTS" "NEBLIO_CONFIG += NoWallet" neblio-wallet.pro; fi \
     && if [ "$BUILD" = "tests-neblio-qt" ]; then make -B -w -j2; fi \
     && if [ "$BUILD" = "tests-neblio-qt" ]; then touch ./wallet/neblio-qt.running-tests; fi \
     && if [ "$BUILD" = "tests-neblio-qt" ]; then ./wallet/test/neblio-tests; fi \
