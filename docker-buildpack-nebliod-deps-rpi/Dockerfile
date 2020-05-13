@@ -1,4 +1,4 @@
-FROM balenalib/raspberry-pi-debian:stretch
+FROM balenalib/raspberry-pi-debian:buster
 MAINTAINER Neblio <info@nebl.io>
 
 RUN [ "cross-build-start" ]
@@ -20,11 +20,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libsodium-dev \
         ccache \
         git \
-        python-setuptools \
+        python-pip \
+        ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 RUN cd $HOME \
-    && easy_install pip \
     && pip install requests \
     && git clone -b master https://github.com/NeblioTeam/neblio \
     && python neblio/build_scripts/CompileOpenSSL-Linux.py \

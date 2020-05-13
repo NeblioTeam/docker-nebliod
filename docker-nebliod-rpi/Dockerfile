@@ -1,4 +1,4 @@
-FROM balenalib/raspberry-pi-debian:stretch
+FROM balenalib/raspberry-pi-debian:buster
 MAINTAINER Neblio <info@nebl.io>
 
 RUN [ "cross-build-start" ]
