@@ -20,11 +20,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libsodium-dev \
         ccache \
         git \
-        python-pip \
+        python-setuptools \
         ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 RUN cd $HOME \
+    && easy_install pip \
     && pip install requests \
     && git clone -b master https://github.com/NeblioTeam/neblio \
     && python neblio/build_scripts/CompileOpenSSL-Linux.py \
