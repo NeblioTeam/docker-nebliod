@@ -1,4 +1,4 @@
-FROM buildpack-deps:bionic
+FROM buildpack-deps:xenial
 MAINTAINER Neblio <info@nebl.io>
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
