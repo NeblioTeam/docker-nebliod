@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:xenial
 MAINTAINER Neblio <info@nebl.io>
 
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y ca-certificates
