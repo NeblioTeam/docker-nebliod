@@ -28,5 +28,5 @@ ENTRYPOINT cd $HOME \
     && if [ "$BUILD" = "tests-neblio-qt" ]; then make -B -w -j2; fi \
     && if [ "$BUILD" = "tests-neblio-qt" ]; then touch ./wallet/neblio-qt.running-tests; fi \
     && if [ "$BUILD" = "tests-neblio-qt" ]; then ./wallet/test/neblio-tests --gtest_filter=-ntp1_tests.run_parse_test:ntp1_tests.download_premade_data_to_files_and_run_parse_test; fi \
-    && if [ "$BUILD" = "tests-neblio-qt" ]; then cp ./wallet/neblio-qt.running-tests /root/vol/deploy/tests-neblio-qt && cp $HOME/.neblio/debug.log /root/vol/deploy/; fi \
+    && if [ "$BUILD" = "tests-neblio-qt" ]; then cp ./wallet/neblio-qt.running-tests /root/vol/deploy/tests-neblio-qt; fi \
     && ccache -s
