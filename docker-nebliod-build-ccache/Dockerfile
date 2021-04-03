@@ -15,6 +15,7 @@ ENTRYPOINT cd $HOME \
     && export BOOST_INCLUDE_PATH="$(pwd)/boost_build/include/" \
     && export BOOST_LIB_PATH="$(pwd)/boost_build/lib/" \
     && ccache -s \
+    && ccache -z \
     && if [ "$BUILD" = "nebliod" ]; then cd /root/vol/wallet; fi \
     && if [ "$BUILD" = "nebliod" ]; then make "STATIC=1" -B -w -j2 -f makefile.unix; fi \
     && if [ "$BUILD" = "nebliod" ]; then strip nebliod; fi \
