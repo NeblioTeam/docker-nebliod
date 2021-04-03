@@ -7,7 +7,7 @@ ENTRYPOINT cd $HOME \
     && export CCACHE_DIR=/root/vol/deploy/.ccache \
     && export CCACHE_COMPRESS=1 \
 	&& export CCACHE_COMPRESSLEVEL=9 \
-	&& export CCACHE_MAXSIZE=150M \
+	&& export CCACHE_MAXSIZE=350M \
     && cd /root/vol \
     && export OPENSSL_INCLUDE_PATH=$HOME/openssl_build/include/ \
     && export OPENSSL_LIB_PATH=$HOME/openssl_build/lib/ \
