@@ -2,6 +2,8 @@
 
 mv $HOME/.neblio.bootstrapped $HOME/.neblio
 
+rm $HOME/.neblio/testnet/debug.*
+
 echo "Downloading blockchain data"
 mkdir -p $HOME/.neblio
 
@@ -37,6 +39,7 @@ nebliod stop
 sleep 60
 rm $HOME/.neblio/neblio.conf
 rm $HOME/.neblio/testnet/wallet.dat
+rm $HOME/.neblio/testnet/debug.*
 # move our files out and we will copy them back in init
 mv $HOME/.neblio $HOME/.neblio.bootstrapped
 sleep 30
