@@ -96,6 +96,12 @@ jobs:
       - name: Diskspace debug
         run: |
           df -h
+      - name: Diskspace debug
+        run: |
+          docker system prune -af
+      - name: Diskspace debug
+        run: |
+          df -h
       - uses: actions/checkout@master
       - name: Diskspace debug
         run: |
