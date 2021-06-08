@@ -115,6 +115,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: [nebliod-build-ccache, nebliod-sync-testnet]
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 51200 #set root partition to 50GB this is where docker images are stored
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
         uses: elgohr/Publish-Docker-Github-Action@master
@@ -129,6 +137,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: [nebliod-build-ccache-rpi, nebliod-sync-testnet]
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 51200 #set root partition to 50GB this is where docker images are stored
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
         uses: elgohr/Publish-Docker-Github-Action@master
