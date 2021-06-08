@@ -11,16 +11,6 @@ jobs:
   buildpack-deps:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Docker Files
-        uses: actions/checkout@v1
-        with:
-          repository: NeblioTeam/docker-nebliod
-          ref: refs/heads/master
-      - name: Move Docker Files
-        run: |
-          cd ..
-          rm -r neblio
-          mv docker-nebliod neblio
       - name: Build and Publish to Docker Repository
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
