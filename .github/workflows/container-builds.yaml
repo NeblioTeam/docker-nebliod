@@ -96,9 +96,14 @@ jobs:
       - name: Diskspace debug
         run: |
           df -h
-      - name: Diskspace debug
-        run: |
-          docker system prune -af
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
       - name: Diskspace debug
         run: |
           df -h
