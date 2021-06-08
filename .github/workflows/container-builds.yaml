@@ -1,0 +1,33 @@
+name: container-builds
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron:  '15 6 * * *'
+
+jobs:
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Docker Files
+        uses: actions/checkout@v1
+        with:
+          repository: NeblioTeam/docker-nebliod
+          ref: refs/heads/master
+      - name: Move Docker Files
+        run: |
+          cd ..
+          rm -r neblio
+          mv docker-nebliod neblio
+      - name: Build and Publish to Docker Repository
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: neblioteam/buildpack-deps
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: docker-buildpack-nebliod-deps
+          buildargs: GITHUB_SHA
+
+
