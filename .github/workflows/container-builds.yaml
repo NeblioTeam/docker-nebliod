@@ -91,7 +91,7 @@ jobs:
 
   nebliod-sync-testnet:
     runs-on: ubuntu-latest
-    # needs: nebliod-build-ccache
+    needs: nebliod-build-ccache
     steps:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
