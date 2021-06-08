@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  docker:
+  buildpack-deps:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Docker Files
