@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libcurl4-openssl-dev \
         libdb++-dev \
         libminiupnpc-dev \
-        qt5-default \
+        qtbase5-dev \
         qt5-qmake \
         qtbase5-dev-tools \
         qttools5-dev-tools \
@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         git \
         python-setuptools \
         ca-certificates \
-        python-pip \
+        python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
 RUN cd $HOME \
