@@ -28,10 +28,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN cd $HOME \
     && pip install requests \
     && git clone -b master https://github.com/NeblioTeam/neblio \
-    && python neblio/build_scripts/CompileOpenSSL-Linux.py \
-    && python neblio/build_scripts/CompileCurl-Linux.py \
-    && python neblio/build_scripts/CompileQREncode-Linux.py \
-    && python neblio/build_scripts/CompileBoost-Linux.py \
+    && python3 neblio/build_scripts/CompileOpenSSL-Linux.py \
+    && python3 neblio/build_scripts/CompileCurl-Linux.py \
+    && python3 neblio/build_scripts/CompileQREncode-Linux.py \
+    && python3 neblio/build_scripts/CompileBoost-Linux.py \
     && cd $HOME \
     && rm -rf neblio
 
