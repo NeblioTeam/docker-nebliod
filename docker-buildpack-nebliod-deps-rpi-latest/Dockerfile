@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python-setuptools \
         ca-certificates \
         python3-pip \
+        libboost-tools-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN cd $HOME \
