@@ -2,12 +2,9 @@
 
 set -ex
 
-# check if we have a bootstrapped .neblio dir we need to copy
-if [ ! -e "$HOME/.neblio/testnet/bootstrap.dat.old" ]; then
+# check if we need to make the neblio data dir
+if [ ! -d "$HOME/.neblio" ]; then
     mkdir -p $HOME/.neblio
-    mv $HOME/.neblio.bootstrapped/* $HOME/.neblio/
-    touch $HOME/.neblio/testnet/bootstrap.dat.old
-    rm -r $HOME/.neblio.bootstrapped
 fi
 
 # This shouldn't be in the Dockerfile or containers built from the same image
