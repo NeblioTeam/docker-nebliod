@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/buildpack-deps
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/buildpack-deps-rpi
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/buildpack-deps-rpi-latest
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -53,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/nebliod-build-ccache
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -67,7 +67,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/nebliod-build-ccache-rpi-latest
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -81,7 +81,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/nebliod-build-ccache-rpi
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -95,7 +95,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/nebliod
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -108,7 +108,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/nebliod-rpi
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -130,7 +130,7 @@ jobs:
           remove-haskell: 'true'
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/nebliod-sync-testnet
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -152,7 +152,7 @@ jobs:
           remove-haskell: 'true'
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/nebliod-testnet
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -174,7 +174,7 @@ jobs:
           remove-haskell: 'true'
       - uses: actions/checkout@master
       - name: Build and Publish to Docker Repository
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: neblioteam/nebliod-testnet-rpi
           username: ${{ secrets.DOCKER_USERNAME }}
